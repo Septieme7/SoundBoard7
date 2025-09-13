@@ -1,0 +1,261 @@
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --accent: #fd79a8;
+    --dark: #2d3436;
+    --light: #dfe6e9;
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --danger: #d63031;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Barre de contrôle centrée verticalement et horizontale */
+.controls {
+    position: absolute;           /* ou fixed si tu veux qu'elle reste visible au scroll */
+    top: 22%;                     /* centre verticalement */
+    left: 50%;                    /* centre horizontalement */
+    transform: translate(-50%, -50%); /* centre exact */
+    z-index: 100;
+    display: flex;
+    justify-content: space-between; /* distribue les boutons avec espace */
+    gap: 20px;                      /* espace minimum entre boutons */
+    padding: 10px 30px;             /* padding autour */
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: gradientShift 10s ease infinite;
+    background: linear-gradient(145deg, #2c3e50,transparent, #4a69bd, transparent);
+    background-size: 800% 800%;
+}
+
+/* Animation du gradient */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.control-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(3px);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.2);
+}
+
+
+.pads-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 80px; /* laisse la place à la barre de boutons */
+}
+
+.pad {
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #2c3e50, #4a69bd);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.pad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.pad:active, .pad.playing {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+}
+
+.pad-number {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.pad-name {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-align: center;
+    padding: 0 5px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    opacity: 0.7;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #2d3436, #636e72);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--light);
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+.modal-input:focus {
+    outline: 2px solid var(--secondary);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.modal-btn.confirm {
+    background-color: var(--success);
+    color: white;
+}
+
+.modal-btn.cancel {
+    background-color: var(--danger);
+    color: white;
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pads-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .controls {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .pads-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .pad-number {
+        font-size: 1.5rem;
+    }
+    
+    .pad-name {
+        font-size: 0.8rem;
+    }
+    
+    .control-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}

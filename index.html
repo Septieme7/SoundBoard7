@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundBoard Ben7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SoundBoard 7</h1>
+            <p class="description">A l'ancienne... PEGI était moins regardant</p>
+        </header>
+        
+        <div class="pads-container" id="pads-container">
+            <!-- Les pads seront générés par JavaScript -->
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" id="stop-all">Arrêter tout</button>
+            <button class="control-btn" id="random">Aléatoire</button>
+            <button class="control-btn" id="rename">Renommer</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>SoundBoard &copy; 2025 By Ben7 - Le SoundBoard Of The Death...</p>
+    </footer>
+
+    <!-- Modal pour renommer les samples -->
+    <div class="modal" id="rename-modal">
+        <div class="modal-content">
+            <h2>Renommer un Sample</h2>
+            <input type="number" id="sample-index" class="modal-input" placeholder="Numéro du sample (1-30)" min="1" max="30">
+            <input type="text" id="sample-name" class="modal-input" placeholder="Nouveau nom">
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="cancel-rename">Annuler</button>
+                <button class="modal-btn confirm" id="confirm-rename">Confirmer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
