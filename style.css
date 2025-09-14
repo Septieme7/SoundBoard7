@@ -236,6 +236,10 @@ footer {
     h1 {
         font-size: 2rem;
     }
+    .control-btn {
+        padding: 27px 15px;
+        font-size: 0.8rem;
+    }
 
 }
 
